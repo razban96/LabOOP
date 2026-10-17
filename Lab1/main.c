@@ -6,9 +6,9 @@
 #define USE_HEADER1 1
 
 #if (USE_HEADER1 == 1)
-#include "Lab1/header1.h"
+#include "header1.h"
 #else
-#include "Lab1/header2.h"
+#include "header2.h"
 #endif
 
 // Task 1.3. checks if native c language _DEBUG mode

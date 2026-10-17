@@ -31,7 +31,8 @@ target_include_directories(Lab1 PRIVATE Lab1)
 # ==========================================
 # Target: Lab 2
 # ==========================================
-# add_executable(Lab2
-#     Lab2/main.cpp
-# )
-# target_include_directories(Lab2 PRIVATE Lab2)
+add_executable(Lab2
+        Lab2/rectangle.cpp
+        Lab2/rectangle.h
+)
+target_include_directories(Lab2 PRIVATE Lab2)
