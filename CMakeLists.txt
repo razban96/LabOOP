@@ -30,9 +30,9 @@ target_include_directories(Lab1 PRIVATE Lab1)
 # ==========================================
 # Target: Lab 2
 # ==========================================
-# Target for Task 2.1
-add_executable(task_2_1 Lab2/rectangle.cpp Lab2/rectangle.h)
-target_include_directories(task_2_1 PRIVATE Lab2)
-# Target for Task 2.2
-add_executable(task_2_2 Lab2/complexNumber.cpp Lab2/complexNumber.h)
-target_include_directories(task_2_2 PRIVATE Lab2)
+# Target for Task 2.1/3.1 Rectangle
+add_executable(task_2_1 Lab2_3/rectangle.cpp Lab2_3/rectangle.h)
+target_include_directories(task_2_1 PRIVATE Lab2_3)
+# Target for Task 2.2/3.5 ComplexNumber
+add_executable(task_2_2 Lab2_3/complexNumber.cpp Lab2_3/complexNumber.h)
+target_include_directories(task_2_2 PRIVATE Lab2_3)

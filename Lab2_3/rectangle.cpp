@@ -28,7 +28,7 @@ void Rectangle::showHeight() const {
     std::cout << "Height: " << this->height << std::endl;
 }
 
-void Rectangle::setWidth(std::string const& width) {
+void Rectangle::setWidth(std::string const &width) {
     std::size_t idx = 0;
     double value = std::stod(width, &idx);
 
@@ -38,7 +38,7 @@ void Rectangle::setWidth(std::string const& width) {
     this->width = value;
 }
 
-void Rectangle::setHeight(std::string const& height) {
+void Rectangle::setHeight(std::string const &height) {
     std::size_t idx = 0;
     double value = std::stod(height, &idx);
     if (idx < height.length() || value <= 0) {
@@ -52,8 +52,7 @@ double Rectangle::getPerimeter(std::string const &width, std::string const &heig
 
     if (height.empty()) {
         setHeight(width);
-    }
-    else setHeight(height);
+    } else setHeight(height);
 
     return (this->width * 2) + (this->height * 2);
 }
@@ -62,13 +61,12 @@ double Rectangle::getPerimeter() const {
     return (this->width * 2) + (this->height * 2);
 }
 
-double Rectangle::getArea(std::string const& width, std::string const& height) {
+double Rectangle::getArea(std::string const &width, std::string const &height) {
     setWidth(width);
 
     if (height.empty()) {
         setHeight(width);
-    }
-    else setHeight(height);
+    } else setHeight(height);
 
     return this->width * this->height;
 }
@@ -118,8 +116,7 @@ int main() {
         Rectangle rect3("3", "6");
         Rectangle::comparePerimeter(rect2, rect3);
         Rectangle::compareArea(rect2, rect3);
-
-    } catch (const std::invalid_argument& e) {
+    } catch (const std::invalid_argument &e) {
         std::cerr << "Caught exception: " << e.what() << '\n';
     }
 
