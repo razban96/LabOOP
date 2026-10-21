@@ -1,7 +1,7 @@
 #pragma once
 struct complexNumber {
-    double realPart;
-    double imaginaryPart;
+    double realPart{};
+    double imaginaryPart{};
 };
 
 float absoluteValue(complexNumber const& nrcomplex);

@@ -13,19 +13,19 @@ Rectangle::Rectangle(std::string const &width, std::string const &height) {
 Rectangle::~Rectangle() = default;
 
 double Rectangle::getWidth() const {
-    return width;
+    return this->width;
 }
 
 double Rectangle::getHeight() const {
-    return height;
+    return this->height;
 }
 
 void Rectangle::showWidth() const {
-    std::cout << "Width: " << width << std::endl;
+    std::cout << "Width: " << this->width << std::endl;
 }
 
 void Rectangle::showHeight() const {
-    std::cout << "Height: " << height << std::endl;
+    std::cout << "Height: " << this->height << std::endl;
 }
 
 void Rectangle::setWidth(std::string const& width) {
