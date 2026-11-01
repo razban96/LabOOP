@@ -42,5 +42,16 @@ add_executable(task4_2
         Lab4/Address.cpp
         Lab4/Person.h
         Lab4/Person.cpp
+        Lab4/Driver.cpp
+        Lab4/Driver.h
+        Lab4/Commuter.cpp
+        Lab4/Commuter.h
+        Lab4/Mosquito.cpp
+        Lab4/Mosquito.h
+        Lab4/Bus.cpp
+        Lab4/Bus.h
+        Lab4/main.cpp
+        Lab4/BusStation.cpp
+        Lab4/BusStation.h
 )
 target_include_directories(task4_2 PRIVATE Lab4)

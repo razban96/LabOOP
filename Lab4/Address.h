@@ -14,9 +14,13 @@
 class Address
 {
   public:
-    Address();
-    Address(const std::string& street, const std::string& city, unsigned int streetNumber);
-    ~Address();
+    // constructors & destructors
+    explicit Address(const std::string& street /*= Calea Smecherilor*/,
+                     const std::string& city /*= Craiova*/, unsigned int streetNumber /*= 69*/)
+        : m_street(street), m_city(city), m_streetNumber(streetNumber)
+    {
+    }
+    ~Address() = default;
 
     // setters & getters
     void setStreet(const std::string& street);
