@@ -36,3 +36,11 @@ target_include_directories(task_2_1 PRIVATE Lab2_3)
 # Target for Task 2.2/3.5 ComplexNumber
 add_executable(task_2_2 Lab2_3/complexNumber.cpp Lab2_3/complexNumber.h)
 target_include_directories(task_2_2 PRIVATE Lab2_3)
+
+add_executable(task4_2
+        Lab4/Address.h
+        Lab4/Address.cpp
+        Lab4/Person.h
+        Lab4/Person.cpp
+)
+target_include_directories(task4_2 PRIVATE Lab4)
