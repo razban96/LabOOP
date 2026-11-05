@@ -55,5 +55,9 @@ add_executable(task4_2
         Lab4-5/BusStation.h
         Lab4-5/Engine.cpp
         Lab4-5/Engine.h
+        Lab4-5/Vehicle.cpp
+        Lab4-5/Vehicle.h
+        Lab4-5/Car.cpp
+        Lab4-5/Car.h
 )
 target_include_directories(task4_2 PRIVATE Lab4-5)
