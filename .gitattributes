@@ -1,0 +1,13 @@
+# Auto-detect text files and normalize to LF in the repository
+* text=auto eol=lf
+
+# Ensure Windows batch scripts maintain CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Ensure Shell scripts maintain LF
+*.sh text eol=lf
+
+# Explicitly mark binary files
+*.png binary
+*.jpg binary
