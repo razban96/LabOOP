@@ -38,20 +38,22 @@ add_executable(task_2_2 Lab2_3/complexNumber.cpp Lab2_3/complexNumber.h)
 target_include_directories(task_2_2 PRIVATE Lab2_3)
 
 add_executable(task4_2
-        Lab4/Address.h
-        Lab4/Address.cpp
-        Lab4/Person.h
-        Lab4/Person.cpp
-        Lab4/Driver.cpp
-        Lab4/Driver.h
-        Lab4/Commuter.cpp
-        Lab4/Commuter.h
-        Lab4/Mosquito.cpp
-        Lab4/Mosquito.h
-        Lab4/Bus.cpp
-        Lab4/Bus.h
-        Lab4/main.cpp
-        Lab4/BusStation.cpp
-        Lab4/BusStation.h
+        Lab4-5/Address.h
+        Lab4-5/Address.cpp
+        Lab4-5/Person.h
+        Lab4-5/Person.cpp
+        Lab4-5/Driver.cpp
+        Lab4-5/Driver.h
+        Lab4-5/Commuter.cpp
+        Lab4-5/Commuter.h
+        Lab4-5/Mosquito.cpp
+        Lab4-5/Mosquito.h
+        Lab4-5/Bus.cpp
+        Lab4-5/Bus.h
+        Lab4-5/main.cpp
+        Lab4-5/BusStation.cpp
+        Lab4-5/BusStation.h
+        Lab4-5/Engine.cpp
+        Lab4-5/Engine.h
 )
-target_include_directories(task4_2 PRIVATE Lab4)
+target_include_directories(task4_2 PRIVATE Lab4-5)

@@ -149,7 +149,7 @@ int main()
     assert(station.getWaitingPassengerCount() == 0);
     assert(replacementBus.boardCommuter(nullptr) == false);
 
-    std::cout << "All Lab4 tests passed.\n";
+    std::cout << "All Lab4-5 tests passed.\n";
 
     return 0;
 }
