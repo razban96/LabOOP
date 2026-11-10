@@ -1,5 +1,4 @@
 #include "BusStation.h"
-
 void BusStation::addPassenger(Commuter* commuter) {
     m_waitingCommuters.push_back(commuter);
 }

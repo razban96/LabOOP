@@ -8,4 +8,3 @@ void Mosquito::bite(Person& p) const
         p.receiveBite();
     }
 }
-

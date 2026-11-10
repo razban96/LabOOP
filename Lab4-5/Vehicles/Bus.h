@@ -9,9 +9,9 @@
  * - Constants          : c_variableName / kVariableName
  */
 #pragma once
-#include "Commuter.h"
-#include "Driver.h"
-#include "Mosquito.h"
+#include "../Creatures/Mosquito.h"
+#include "../Humans/Driver.h"
+#include "../Humans/Commuter.h"
 #include <string>
 #include <vector>
 class Bus

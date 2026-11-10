@@ -1,8 +1,8 @@
-#include "Bus.h"
-#include "BusStation.h"
-#include "Mosquito.h"
-#include "Commuter.h"
-#include "Driver.h"
+#include "Creatures/Mosquito.h"
+#include "Humans/Driver.h"
+#include "Humans/Commuter.h"
+#include "Places/BusStation.h"
+#include "Vehicles/Bus.h"
 
 #include <cassert>
 #include <iostream>

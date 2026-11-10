@@ -9,9 +9,9 @@
  * - Constants          : c_variableName / kVariableName
  */
 #pragma once
-#include "Driver.h"
-#include "Engine.h"
-#include "Mosquito.h"
+#include "../Creatures/Mosquito.h"
+#include "../Humans/Driver.h"
+#include "Subcomponents/Engine.h"
 class Vehicle
 {
   public:

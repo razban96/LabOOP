@@ -15,4 +15,3 @@ bool Vehicle::isStationary() const { return m_isStationary; }
 void Vehicle::setEngine(const Engine& engine) {m_engine = engine;}
 void Vehicle::setDriver(Driver* driver) {m_driver = driver;}
 void Vehicle::setIsStationary(bool isStationary) {m_isStationary = isStationary;}
-

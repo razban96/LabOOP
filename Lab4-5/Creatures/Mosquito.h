@@ -9,7 +9,7 @@
  * - Constants          : c_variableName / kVariableName
  */
 #pragma once
-#include "Person.h"
+#include "../Humans/Person.h"
 class Mosquito
 {
   public:
