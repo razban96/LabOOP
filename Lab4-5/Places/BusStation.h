@@ -28,6 +28,8 @@ class BusStation
     // getters
     [[nodiscard]] std::string getName() const { return m_name; }
     [[nodiscard]] size_t getWaitingPassengerCount() const { return m_waitingCommuters.size(); }
+    [[nodiscard]] const std::vector<Commuter*>& getWaitingCommuters() const;
+    [[nodiscard]] Bus* getDockedBus() const;
     [[nodiscard]] bool isOccupied() const { return m_dockedBus != nullptr; }
 
     // management
@@ -35,6 +37,8 @@ class BusStation
     void busArrives(Bus* bus);
     void busDeparts();
     void boardPassengers();
+    void printWaitingCommuters() const;
+    void printBusStationInfo() const;
 
   private:
     std::string m_name;

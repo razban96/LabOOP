@@ -5,6 +5,12 @@
 unsigned int Bus::getMaxCapacity() const { return m_maxCapacity; }
 
 std::string Bus::getBusLine() const { return m_busLine; }
+unsigned int Bus::getCommuterCount() const
+{
+    if (m_commuters.empty())
+        return 0;
+    return m_commuters.size();
+}
 
 void Bus::setMaxCapacity(unsigned int maxCapacity) { m_maxCapacity = maxCapacity; }
 
@@ -17,7 +23,7 @@ bool Bus::boardCommuter(Commuter* commuter)
         std::cout << "Bus line " << m_busLine << " is full." << std::endl;
         return false;
     }
-    m_commuters.push_back(commuter);
+    m_commuters.emplace_back(commuter);
     return true;
 }
 

@@ -33,8 +33,9 @@ class Bus : public Vehicle
 
     [[nodiscard]] unsigned int getMaxCapacity() const;
     [[nodiscard]] std::string getBusLine() const;
+    [[nodiscard]] unsigned int getCommuterCount() const;
 
-    // other
+    // Management
     void startEngine() override;
     void stopEngine() override;
     void stopBus();
@@ -43,6 +44,7 @@ class Bus : public Vehicle
     bool boardCommuter(Commuter* commuter);
     void printVehicleInfo() const override;
 
+    // Mosquito
     void mosquitoAttack(const Mosquito& mosquito);
 private:
     std::string m_busLine;
