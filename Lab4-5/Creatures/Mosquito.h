@@ -10,15 +10,22 @@
  */
 #pragma once
 #include "../Humans/Person.h"
+#include <string>
+
 class Mosquito
 {
   public:
-    explicit Mosquito(bool isDeadly = false) : m_isDeadly(isDeadly) {}
+    explicit Mosquito(bool isDeadly = false, const std::string& species = "Culex")
+        : m_isDeadly(isDeadly), m_species(species)
+    {
+    }
     ~Mosquito() = default;
 
     [[nodiscard]] bool isDeadly() const;
+    [[nodiscard]] const std::string& getSpecies() const;
     void bite(Person& p) const;
 
   private:
     const bool m_isDeadly;
+    std::string m_species;
 };

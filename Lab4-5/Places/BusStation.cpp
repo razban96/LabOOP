@@ -1,8 +1,11 @@
 #include "BusStation.h"
+#include "../Vehicles/Bus.h"
+#include <algorithm>
+#include <iostream>
 
-const std::vector<Commuter*>& BusStation::getWaitingCommuters() const
+const std::vector<Person*>& BusStation::getWaitingPassengers() const
 {
-    return m_waitingCommuters;
+    return m_waitingPassengers;
 }
 
 Bus* BusStation::getDockedBus() const
@@ -10,12 +13,35 @@ Bus* BusStation::getDockedBus() const
     return m_dockedBus;
 }
 
-void BusStation::addPassenger(Commuter* commuter)
+void BusStation::addPassenger(Person* person)
 {
-    if (commuter != nullptr)
+    if (person != nullptr)
     {
-        m_waitingCommuters.push_back(commuter);
+        m_waitingPassengers.push_back(person);
     }
+}
+
+bool BusStation::removePassenger(Person* person)
+{
+    for (auto it = m_waitingPassengers.begin(); it != m_waitingPassengers.end(); ++it)
+    {
+        if (*it == person)
+        {
+            m_waitingPassengers.erase(it);
+            return true;
+        }
+    }
+    return false;
+}
+
+bool BusStation::hasPassenger(const Person* person) const
+{
+    for (const auto* p : m_waitingPassengers)
+    {
+        if (p == person)
+            return true;
+    }
+    return false;
 }
 
 void BusStation::busArrives(Bus* bus)
@@ -36,14 +62,14 @@ void BusStation::boardPassengers()
         return;
     }
 
-    while (!m_waitingCommuters.empty())
+    while (!m_waitingPassengers.empty())
     {
-        Commuter* commuter = m_waitingCommuters.back();
+        Person* passenger = m_waitingPassengers.back();
 
-        // Try boarding the commuter onto the docked bus
-        if (m_dockedBus->boardCommuter(commuter))
+        // Try boarding the passenger onto the docked bus
+        if (m_dockedBus->boardPassenger(passenger))
         {
-            m_waitingCommuters.pop_back(); // remove from platform
+            m_waitingPassengers.pop_back(); // remove from platform
         }
         else
         {
@@ -53,19 +79,74 @@ void BusStation::boardPassengers()
     }
 }
 
+void BusStation::addServicingBus(Bus* bus)
+{
+    if (bus == nullptr)
+        return;
+
+    for (const auto* b : m_servicingBuses)
+    {
+        if (b == bus)
+            return; // already present
+    }
+
+    m_servicingBuses.push_back(bus);
+    bus->addStationToRoute(this); // synchronize two-way
+}
+
+void BusStation::removeServicingBus(Bus* bus)
+{
+    if (bus == nullptr)
+        return;
+
+    auto it = std::find(m_servicingBuses.begin(), m_servicingBuses.end(), bus);
+    if (it != m_servicingBuses.end())
+    {
+        m_servicingBuses.erase(it);
+        bus->removeStationFromRoute(this); // synchronize two-way
+    }
+}
+
+const std::vector<Bus*>& BusStation::getServicingBuses() const
+{
+    return m_servicingBuses;
+}
+
+bool BusStation::hasBus(const Bus* bus) const
+{
+    for (const auto* b : m_servicingBuses)
+    {
+        if (b == bus)
+            return true;
+    }
+    return false;
+}
+
+void BusStation::printServicingBuses() const
+{
+    std::cout << "Buses servicing " << m_name << " (" << m_servicingBuses.size() << " lines):\n";
+    for (size_t i = 0; i < m_servicingBuses.size(); ++i)
+    {
+        if (m_servicingBuses[i] != nullptr)
+        {
+            std::cout << "  " << (i + 1) << ". " << m_servicingBuses[i]->getBusLine() << "\n";
+        }
+    }
+}
+
 void BusStation::printWaitingCommuters() const
 {
-    std::cout << "Waiting commuters: " << m_waitingCommuters.size() << std::endl;
-    for (size_t index = 0; index < m_waitingCommuters.size(); ++index)
+    std::cout << "Waiting passengers: " << m_waitingPassengers.size() << std::endl;
+    for (size_t index = 0; index < m_waitingPassengers.size(); ++index)
     {
-        const Commuter* commuter = m_waitingCommuters[index];
-        if (commuter == nullptr)
+        const Person* passenger = m_waitingPassengers[index];
+        if (passenger == nullptr)
         {
             std::cout << index + 1 << ". None" << std::endl;
             continue;
         }
 
-        std::cout << index + 1 << ". " << commuter->getName() << std::endl;
+        std::cout << index + 1 << ". " << passenger->getName() << std::endl;
     }
 }
 
@@ -75,6 +156,7 @@ void BusStation::printBusStationInfo() const
               << "Occupied: " << (isOccupied() ? "Yes" : "No") << std::endl;
 
     printWaitingCommuters();
+    printServicingBuses();
 
     if (m_dockedBus != nullptr)
     {

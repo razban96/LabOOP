@@ -9,11 +9,12 @@
  * - Constants          : c_variableName / kVariableName
  */
 #pragma once
-#include "../Vehicles/Bus.h"
-#include "../Humans/Commuter.h"
+#include "../Humans/Person.h"
 #include <iostream>
 #include <string>
 #include <vector>
+
+class Bus;
 
 class BusStation
 {
@@ -27,21 +28,31 @@ class BusStation
 
     // getters
     [[nodiscard]] std::string getName() const { return m_name; }
-    [[nodiscard]] size_t getWaitingPassengerCount() const { return m_waitingCommuters.size(); }
-    [[nodiscard]] const std::vector<Commuter*>& getWaitingCommuters() const;
+    [[nodiscard]] size_t getWaitingPassengerCount() const { return m_waitingPassengers.size(); }
+    [[nodiscard]] const std::vector<Person*>& getWaitingPassengers() const;
     [[nodiscard]] Bus* getDockedBus() const;
     [[nodiscard]] bool isOccupied() const { return m_dockedBus != nullptr; }
 
     // management
-    void addPassenger(Commuter* commuter);
+    void addPassenger(Person* person);
+    bool removePassenger(Person* person);
+    [[nodiscard]] bool hasPassenger(const Person* person) const;
     void busArrives(Bus* bus);
     void busDeparts();
     void boardPassengers();
     void printWaitingCommuters() const;
     void printBusStationInfo() const;
 
+    // Servicing buses (Tasks 3 & 4)
+    void addServicingBus(Bus* bus);
+    void removeServicingBus(Bus* bus);
+    [[nodiscard]] const std::vector<Bus*>& getServicingBuses() const;
+    [[nodiscard]] bool hasBus(const Bus* bus) const;
+    void printServicingBuses() const;
+
   private:
     std::string m_name;
-    std::vector<Commuter*> m_waitingCommuters;
-    Bus* m_dockedBus;
+    std::vector<Person*> m_waitingPassengers;
+    Bus* m_dockedBus{nullptr};
+    std::vector<Bus*> m_servicingBuses;
 };

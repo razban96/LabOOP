@@ -10,17 +10,20 @@
  */
 #pragma once
 #include "../Creatures/Mosquito.h"
-#include "../Humans/Commuter.h"
 #include "../Humans/Driver.h"
+#include "../Humans/Person.h"
 #include "Vehicle.h"
 #include <string>
 #include <vector>
+
+class BusStation;
+
 class Bus : public Vehicle
 {
   public:
     // constructors & destructors
-    explicit Bus(const std::string& busLine = "Linia 69", unsigned int maxCapacity = 30,
-                 Driver* driver = nullptr, bool isStationary = true)
+    explicit Bus(const std::string& busLine = "Linia 69", const unsigned int maxCapacity = 30,
+                 Driver* driver = nullptr, const bool isStationary = true)
         : Vehicle(Engine(), driver), m_busLine(busLine), m_maxCapacity(maxCapacity)
     {
         setIsStationary(isStationary);
@@ -34,20 +37,45 @@ class Bus : public Vehicle
     [[nodiscard]] unsigned int getMaxCapacity() const;
     [[nodiscard]] std::string getBusLine() const;
     [[nodiscard]] unsigned int getCommuterCount() const;
+    [[nodiscard]] size_t getPassengerCount() const;
+    [[nodiscard]] bool getIsStationary() const { return isStationary(); }
 
-    // Management
+    // Engine & Movement
     void startEngine() override;
     void stopEngine() override;
-    void stopBus();
-    void startBus();
+    void stopBus(); // calls stopEngine()
+    void startBus(); // calls startEngine()
 
-    bool boardCommuter(Commuter* commuter);
+    // Passenger boarding (Person*)
+    bool boardPassenger(Person* person);
+    bool boardCommuter(Person* person);
+    bool removePassenger(Person* person);
+    [[nodiscard]] bool hasPassenger(const Person* person) const;
+    [[nodiscard]] const std::vector<Person*>& getPassengers() const;
+
+    // Routes (Tasks 3 & 4)
+    void addStationToRoute(BusStation* station);
+    void removeStationFromRoute(BusStation* station);
+    [[nodiscard]] const std::vector<BusStation*>& getRouteStations() const;
+    [[nodiscard]] bool stopsAt(const BusStation* station) const;
+    void printRoute() const;
+
+    // Printing
     void printVehicleInfo() const override;
+    void printBusInfo() const { printVehicleInfo(); }
 
-    // Mosquito
+    // Mosquitoes (Tasks 7 & 8)
+    void addMosquito(Mosquito* mosquito);
+    bool removeMosquito(Mosquito* mosquito);
+    [[nodiscard]] bool hasMosquito(const Mosquito* mosquito) const;
+    [[nodiscard]] const std::vector<Mosquito*>& getMosquitoes() const;
+    [[nodiscard]] size_t getMosquitoCount() const;
     void mosquitoAttack(const Mosquito& mosquito);
-private:
+
+  private:
     std::string m_busLine;
     unsigned int m_maxCapacity;
-    std::vector<Commuter*> m_commuters;
+    std::vector<Person*> m_passengers;
+    std::vector<BusStation*> m_routeStations;
+    std::vector<Mosquito*> m_mosquitoes;
 };

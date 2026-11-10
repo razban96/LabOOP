@@ -8,8 +8,9 @@ class Student : public Person
 {
   public:
     explicit Student(const std::string& name = "Unknown", unsigned int age = 18,
-                     double averageGrade = 0.0);
-    virtual ~Student();
+                     double averageGrade = 0.0, const Address& address = Address(),
+                     bool isAllergicToMosquitoes = false, bool isAlive = true);
+    ~Student() override;
 
     void setAverageGrade(double averageGrade);
 

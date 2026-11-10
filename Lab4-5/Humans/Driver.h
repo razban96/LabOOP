@@ -13,8 +13,10 @@
 class Driver : public Person
 {
   public:
-    explicit Driver(unsigned int age, const std::string& name, bool isAllergicToMosquitoes, bool isAlive,
-           const Address& address, unsigned int yearsOfExperience = 3, bool hasLicenseValid = true)
+    explicit Driver(const unsigned int age = 30, const std::string& name = "Unknown",
+                    const bool isAllergicToMosquitoes = false, const bool isAlive = true,
+                    const Address& address = Address(), const unsigned int yearsOfExperience = 3,
+                    const bool hasLicenseValid = true)
         : Person(age, name, isAllergicToMosquitoes, address, isAlive),
           m_yearsOfExperience(yearsOfExperience), m_hasLicenseValid(hasLicenseValid)
     {
