@@ -32,6 +32,9 @@ class Vehicle
 
     // pure virtual, makes the Vehicle class abstract, an interface
     virtual void startEngine() = 0;
+    virtual void stopEngine() = 0;
+
+    virtual void printVehicleInfo() const;
 
   protected:
     Engine m_engine;

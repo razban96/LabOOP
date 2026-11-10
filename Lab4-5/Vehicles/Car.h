@@ -17,9 +17,10 @@ class Car : public Vehicle
     explicit Car();
     ~Car() override = default;
 
-
-
     void startEngine() override;
+    void stopEngine() override;
+    void printVehicleInfo() const override;
+
   private:
     unsigned int m_maxCapacity{0};
     // Mosquito* mosquito_;

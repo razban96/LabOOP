@@ -38,7 +38,8 @@ class Engine
     void startEngine();
     void stopEngine();
 
-
+    // other
+    void printEngineInfo() const;
     // tuning (softuri arabesti)
     void callVericuSoft(const Stages& stage);
 

@@ -22,6 +22,7 @@ bool Engine::hasCheckEngine() const { return m_hasCheckEngine; }
 void Engine::startEngine() { m_isRunning = true; }
 void Engine::stopEngine() { m_isRunning = false; }
 
+
 struct StageBoost
 {
     unsigned int hpUpgrade{0};
@@ -64,4 +65,31 @@ void Engine::callVericuSoft(const Stages& stage)
         m_hasCheckEngine = true;
 
     std::cout << "Gata vericule ai soft pe ea, poti sa distrugi CB ul" << std::endl;
+}
+
+void Engine::printEngineInfo() const
+{
+    const char* stageName = "Stock";
+    switch (m_currentStage)
+    {
+    case Stages::Stage1:
+        stageName = "Stage 1";
+        break;
+    case Stages::Stage2:
+        stageName = "Stage 2";
+        break;
+    case Stages::Stage3:
+        stageName = "Stage 3";
+        break;
+    case Stages::Stock:
+        break;
+    }
+
+    std::cout << "Engine info:" << std::endl
+              << "Horse power: " << m_horsePower << std::endl
+              << "Newton meters: " << m_newtonMeters << std::endl
+              << "RPM: " << m_rpm << std::endl
+              << "Current stage: " << stageName << std::endl
+              << "Running: " << (m_isRunning ? "Yes" : "No") << std::endl
+              << "Check engine: " << (m_hasCheckEngine ? "Yes" : "No") << std::endl;
 }

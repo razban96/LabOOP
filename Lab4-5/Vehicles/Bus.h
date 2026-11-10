@@ -10,49 +10,42 @@
  */
 #pragma once
 #include "../Creatures/Mosquito.h"
-#include "../Humans/Driver.h"
 #include "../Humans/Commuter.h"
+#include "../Humans/Driver.h"
+#include "Vehicle.h"
 #include <string>
 #include <vector>
-class Bus
+class Bus : public Vehicle
 {
   public:
     // constructors & destructors
     explicit Bus(const std::string& busLine = "Linia 69", unsigned int maxCapacity = 30,
                  Driver* driver = nullptr, bool isStationary = true)
-        : m_busLine(busLine), m_maxCapacity(maxCapacity), m_driver(driver), m_isStationary(isStationary)
+        : Vehicle(Engine(), driver), m_busLine(busLine), m_maxCapacity(maxCapacity)
     {
+        setIsStationary(isStationary);
     }
 
-    ~Bus() = default;
+    ~Bus() override = default;
 
     // getters & setters
     void setMaxCapacity(unsigned int maxCapacity);
 
-    void setDriver(Driver* driver);
-
-    bool boardCommuter(Commuter* commuter);
-
     [[nodiscard]] unsigned int getMaxCapacity() const;
-
     [[nodiscard]] std::string getBusLine() const;
 
-    [[nodiscard]] Driver* getDriver() const;
-
-    [[nodiscard]] bool getIsStationary() const;
-
     // other
+    void startEngine() override;
+    void stopEngine() override;
     void stopBus();
-
     void startBus();
 
-    void printBusInfo() const;
+    bool boardCommuter(Commuter* commuter);
+    void printVehicleInfo() const override;
 
     void mosquitoAttack(const Mosquito& mosquito);
 private:
     std::string m_busLine;
     unsigned int m_maxCapacity;
-    Driver* m_driver;
     std::vector<Commuter*> m_commuters;
-    bool m_isStationary;
 };

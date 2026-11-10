@@ -1,17 +1,12 @@
 #include "Bus.h"
+#include <iostream>
 #include <random>
 
 unsigned int Bus::getMaxCapacity() const { return m_maxCapacity; }
 
 std::string Bus::getBusLine() const { return m_busLine; }
 
-Driver* Bus::getDriver() const { return m_driver; }
-
-bool Bus::getIsStationary() const { return m_isStationary; }
-
 void Bus::setMaxCapacity(unsigned int maxCapacity) { m_maxCapacity = maxCapacity; }
-
-void Bus::setDriver(Driver* driver) { m_driver = driver; }
 
 bool Bus::boardCommuter(Commuter* commuter)
 {
@@ -26,20 +21,32 @@ bool Bus::boardCommuter(Commuter* commuter)
     return true;
 }
 
-void Bus::stopBus() { m_isStationary = true; }
-
-void Bus::startBus()
+void Bus::startEngine()
 {
-    if (getDriver() != nullptr)
-        m_isStationary = false;
+    if (getDriver() == nullptr)
+    {
+        std::cout << "No driver in the bus, can't start." << std::endl;
+        return;
+    }
+
+    m_engine.startEngine();
+    setIsStationary(false);
 }
 
-void Bus::printBusInfo() const
+void Bus::stopEngine()
 {
+    m_engine.stopEngine();
+    setIsStationary(true);
+}
+
+void Bus::startBus() { startEngine(); }
+void Bus::stopBus() { stopEngine(); }
+
+void Bus::printVehicleInfo() const
+{
+    Vehicle::printVehicleInfo();
     std::cout << "Bus line: " << m_busLine << std::endl
-              << "Status: " << (m_isStationary ? "Stationary" : "Moving") << std::endl
               << "Max capacity: " << m_maxCapacity << std::endl
-              << "Driver: " << (m_driver ? m_driver->getName() : "None") << std::endl
               << "No. of commuters: " << m_commuters.size() << std::endl;
 }
 
