@@ -1,19 +1,21 @@
 #include "Apartment.h"
+#include "../Humans/Person.h"
+#include <iostream>
 
-Apartment::Apartment(const std::string& address, unsigned int rooms, double area)
+Apartment::Apartment(const Address& address, unsigned int rooms, double area)
     : m_address(address), m_rooms(rooms), m_area(area)
 {
 }
 
 Apartment::~Apartment() = default;
 
-void Apartment::setAddress(const std::string& address) { m_address = address; }
+void Apartment::setAddress(const Address& address) { m_address = address; }
 
 void Apartment::setRooms(unsigned int rooms) { m_rooms = rooms; }
 
 void Apartment::setArea(double area) { m_area = area; }
 
-const std::string& Apartment::getAddress() const { return m_address; }
+const Address& Apartment::getAddress() const { return m_address; }
 
 unsigned int Apartment::getRooms() const { return m_rooms; }
 
@@ -22,6 +24,17 @@ double Apartment::getArea() const { return m_area; }
 void Apartment::setOwner(Person* owner) { m_owner = owner; }
 
 Person* Apartment::getOwner() const { return m_owner; }
+
+void Apartment::printApartmentInfo() const
+{
+    std::cout << "Apartment Info:\n"
+              << "  Address: " << m_address.getStreet() << " " << m_address.getStreetNumber()
+              << ", " << m_address.getCity() << "\n"
+              << "  Rooms: " << m_rooms << "\n"
+              << "  Area: " << m_area << " m^2\n"
+              << "  Owner: " << (m_owner != nullptr ? m_owner->getName() : "None") << "\n"
+              << "  Mosquitoes: " << m_mosquitoes.size() << "\n";
+}
 
 void Apartment::addMosquito(Mosquito* mosquito)
 {

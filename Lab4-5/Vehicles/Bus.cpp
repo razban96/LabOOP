@@ -38,7 +38,7 @@ bool Bus::boardCommuter(Person* person)
     return boardPassenger(person);
 }
 
-bool Bus::removePassenger(Person* person)
+bool Bus::removePassenger(const Person* person)
 {
     for (auto it = m_passengers.begin(); it != m_passengers.end(); ++it)
     {
@@ -99,7 +99,7 @@ void Bus::addStationToRoute(BusStation* station)
     }
 
     m_routeStations.push_back(station);
-    station->addServicingBus(this); // synchronize two-way
+    station->addServicingBus(this); // synchronize between instances of bus and bus station
 }
 
 void Bus::removeStationFromRoute(BusStation* station)
@@ -111,7 +111,7 @@ void Bus::removeStationFromRoute(BusStation* station)
     if (it != m_routeStations.end())
     {
         m_routeStations.erase(it);
-        station->removeServicingBus(this); // synchronize two-way
+        station->removeServicingBus(this); // synchronize between instances of bus and bus station
     }
 }
 

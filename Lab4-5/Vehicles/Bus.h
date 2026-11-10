@@ -49,7 +49,7 @@ class Bus : public Vehicle
     // Passenger boarding (Person*)
     bool boardPassenger(Person* person);
     bool boardCommuter(Person* person);
-    bool removePassenger(Person* person);
+    bool removePassenger(const Person* person);
     [[nodiscard]] bool hasPassenger(const Person* person) const;
     [[nodiscard]] const std::vector<Person*>& getPassengers() const;
 

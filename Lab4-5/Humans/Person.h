@@ -43,7 +43,7 @@ class Person
 
     void receiveBite();
 
-protected:
+  protected:
     unsigned int m_age;
     std::string m_name;
     Address m_address;

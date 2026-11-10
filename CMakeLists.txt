@@ -63,5 +63,7 @@ add_executable(task4-5_2
         Lab4-5/Places/Apartment.h
         Lab4-5/Humans/Student.cpp
         Lab4-5/Humans/Student.h
+        Lab4-5/CityOperations.cpp
+        Lab4-5/CityOperations.h
 )
 target_include_directories(task4-5_2 PRIVATE Lab4-5)

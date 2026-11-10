@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../Humans/Subcomponents/Address.h"
 #include <string>
 #include <vector>
 
@@ -9,16 +10,16 @@ class Mosquito;
 class Apartment
 {
   public:
-    explicit Apartment(const std::string& address = "Unknown", unsigned int rooms = 1,
+    explicit Apartment(const Address& address = Address(), unsigned int rooms = 1,
                        double area = 0.0);
-    virtual ~Apartment();
+    ~Apartment();
 
-    void setAddress(const std::string& address);
+    void setAddress(const Address& address);
     void setRooms(unsigned int rooms);
     void setArea(double area);
     void setOwner(Person* owner);
 
-    [[nodiscard]] const std::string& getAddress() const;
+    [[nodiscard]] const Address& getAddress() const;
     [[nodiscard]] unsigned int getRooms() const;
     [[nodiscard]] double getArea() const;
     [[nodiscard]] Person* getOwner() const;
@@ -30,8 +31,10 @@ class Apartment
     [[nodiscard]] const std::vector<Mosquito*>& getMosquitoes() const;
     [[nodiscard]] size_t getMosquitoCount() const;
 
+    void printApartmentInfo() const;
+
   private:
-    std::string m_address;
+    Address m_address;
     unsigned int m_rooms;
     double m_area;
     Person* m_owner{nullptr};
