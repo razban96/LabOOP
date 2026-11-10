@@ -27,21 +27,14 @@ class Person
 
     // setters & getters
     void setAge(unsigned int age);
-
     void setName(const std::string& name);
-
     void setIsAllergicToMosquitoes(bool isAllergicToMosquitoes);
-
     void setAddress(const Address& address);
 
     [[nodiscard]] unsigned int getAge() const;
-
     [[nodiscard]] const std::string& getName() const;
-
     [[nodiscard]] const Address& getAddress() const;
-
     [[nodiscard]] bool getIsAllergicToMosquitoes() const;
-
     [[nodiscard]] bool getIsAlive() const;
 
     // Other
@@ -50,7 +43,7 @@ class Person
     void receiveBite();
 
 
-  private:
+protected:
     unsigned int m_age;
     std::string m_name;
     Address m_address;
