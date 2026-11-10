@@ -9,18 +9,23 @@
  * - Constants          : c_variableName / kVariableName
  */
 #pragma once
-#include "Vehicle.h"
+#include "../Humans/Person.h"
+#include <string>
 
-class Car : public Vehicle
+class Mosquito
 {
   public:
-    explicit Car();
-    ~Car() override = default;
+    explicit Mosquito(bool isDeadly = false, const std::string& species = "Culex")
+        : m_isDeadly(isDeadly), m_species(species)
+    {
+    }
+    ~Mosquito() = default;
 
+    [[nodiscard]] bool isDeadly() const;
+    [[nodiscard]] const std::string& getSpecies() const;
+    void bite(Person& p) const;
 
-
-    void startEngine() override;
   private:
-    unsigned int m_maxCapacity{0};
-    // Mosquito* mosquito_;
+    const bool m_isDeadly;
+    std::string m_species;
 };

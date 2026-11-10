@@ -15,8 +15,10 @@ class Commuter : public Person
 {
   public:
     // constructors & destructors
-    explicit Commuter(unsigned int age, const std::string& name, bool isAllergicToMosquitoes,
-                      bool isAlive, const Address& address, bool hasTicket = false, bool hasSubscription = false,
+    explicit Commuter(unsigned int age = 18, const std::string& name = "Unknown",
+                      bool isAllergicToMosquitoes = false, bool isAlive = true,
+                      const Address& address = Address(), bool hasTicket = false,
+                      bool hasSubscription = false,
                       const std::string& destination = "Facultatea de Hoti si Sarlatani 46")
         : Person(age, name, isAllergicToMosquitoes, address, isAlive), m_hasTicket(hasTicket),
           m_hasSubscription(hasSubscription), m_destination(destination)

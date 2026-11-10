@@ -9,51 +9,45 @@
  * - Constants          : c_variableName / kVariableName
  */
 #pragma once
-#include "Address.h"
+#include "Subcomponents/Address.h"
 #include <iostream>
 #include <string>
+
+class Apartment;
 
 class Person
 {
   public:
     // constructor, destructor
-    explicit Person(unsigned int age /*=69*/, const std::string& name /*=Iancu Robila*/,
-               bool isAllergicToMosquitoes /*=true*/, const Address& address, bool isAlive /*true*/)
-    : m_age(age), m_name(name), m_address(address),
-      m_isAllergicToMosquitoes(isAllergicToMosquitoes), m_isAlive(isAlive)
-    {
-    }
+    explicit Person(unsigned int age = 18, const std::string& name = "Unknown",
+                    bool isAllergicToMosquitoes = false, const Address& address = Address(),
+                    bool isAlive = true);
     virtual ~Person() = default;
 
     // setters & getters
     void setAge(unsigned int age);
-
     void setName(const std::string& name);
-
     void setIsAllergicToMosquitoes(bool isAllergicToMosquitoes);
-
     void setAddress(const Address& address);
+    void setApartment(Apartment* apartment);
 
     [[nodiscard]] unsigned int getAge() const;
-
     [[nodiscard]] const std::string& getName() const;
-
     [[nodiscard]] const Address& getAddress() const;
-
     [[nodiscard]] bool getIsAllergicToMosquitoes() const;
-
     [[nodiscard]] bool getIsAlive() const;
+    [[nodiscard]] Apartment* getApartment() const;
 
     // Other
     virtual void printStandardInfo() const;
 
     void receiveBite();
 
-
-  private:
+  protected:
     unsigned int m_age;
     std::string m_name;
     Address m_address;
     bool m_isAllergicToMosquitoes;
     bool m_isAlive;
+    Apartment* m_apartment{nullptr};
 };

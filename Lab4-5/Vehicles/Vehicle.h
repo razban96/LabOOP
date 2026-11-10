@@ -9,9 +9,9 @@
  * - Constants          : c_variableName / kVariableName
  */
 #pragma once
-#include "Driver.h"
-#include "Engine.h"
-#include "Mosquito.h"
+#include "../Creatures/Mosquito.h"
+#include "../Humans/Driver.h"
+#include "Subcomponents/Engine.h"
 class Vehicle
 {
   public:
@@ -32,6 +32,9 @@ class Vehicle
 
     // pure virtual, makes the Vehicle class abstract, an interface
     virtual void startEngine() = 0;
+    virtual void stopEngine() = 0;
+
+    virtual void printVehicleInfo() const;
 
   protected:
     Engine m_engine;

@@ -15,8 +15,8 @@ class Address
 {
   public:
     // constructors & destructors
-    explicit Address(const std::string& street /*= Calea Smecherilor*/,
-                     const std::string& city /*= Craiova*/, unsigned int streetNumber /*= 69*/)
+    explicit Address(const std::string& street = "Calea Smecherilor",
+                     const std::string& city = "Craiova", unsigned int streetNumber = 69)
         : m_street(street), m_city(city), m_streetNumber(streetNumber)
     {
     }
@@ -29,6 +29,9 @@ class Address
     [[nodiscard]] const std::string& getStreet() const;
     [[nodiscard]] const std::string& getCity() const;
     [[nodiscard]] unsigned int getStreetNumber() const;
+
+    bool operator==(const Address& other) const;
+    bool operator!=(const Address& other) const;
 
   private:
     std::string m_street;

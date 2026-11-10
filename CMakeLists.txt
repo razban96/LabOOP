@@ -37,27 +37,33 @@ target_include_directories(task_2_1 PRIVATE Lab2_3)
 add_executable(task_2_2 Lab2_3/complexNumber.cpp Lab2_3/complexNumber.h)
 target_include_directories(task_2_2 PRIVATE Lab2_3)
 
-add_executable(task4_2
-        Lab4-5/Address.h
-        Lab4-5/Address.cpp
-        Lab4-5/Person.h
-        Lab4-5/Person.cpp
-        Lab4-5/Driver.cpp
-        Lab4-5/Driver.h
-        Lab4-5/Commuter.cpp
-        Lab4-5/Commuter.h
-        Lab4-5/Mosquito.cpp
-        Lab4-5/Mosquito.h
-        Lab4-5/Bus.cpp
-        Lab4-5/Bus.h
+add_executable(task4-5_2
+        Lab4-5/Humans/Subcomponents/Address.h
+        Lab4-5/Humans/Subcomponents/Address.cpp
+        Lab4-5/Humans/Person.h
+        Lab4-5/Humans/Person.cpp
+        Lab4-5/Humans/Driver.cpp
+        Lab4-5/Humans/Driver.h
+        Lab4-5/Humans/Commuter.cpp
+        Lab4-5/Humans/Commuter.h
+        Lab4-5/Creatures/Mosquito.cpp
+        Lab4-5/Creatures/Mosquito.h
+        Lab4-5/Vehicles/Bus.cpp
+        Lab4-5/Vehicles/Bus.h
         Lab4-5/main.cpp
-        Lab4-5/BusStation.cpp
-        Lab4-5/BusStation.h
-        Lab4-5/Engine.cpp
-        Lab4-5/Engine.h
-        Lab4-5/Vehicle.cpp
-        Lab4-5/Vehicle.h
-        Lab4-5/Car.cpp
-        Lab4-5/Car.h
+        Lab4-5/Places/BusStation.cpp
+        Lab4-5/Places/BusStation.h
+        Lab4-5/Vehicles/Subcomponents/Engine.cpp
+        Lab4-5/Vehicles/Subcomponents/Engine.h
+        Lab4-5/Vehicles/Vehicle.cpp
+        Lab4-5/Vehicles/Vehicle.h
+        Lab4-5/Vehicles/Car.cpp
+        Lab4-5/Vehicles/Car.h
+        Lab4-5/Places/Apartment.cpp
+        Lab4-5/Places/Apartment.h
+        Lab4-5/Humans/Student.cpp
+        Lab4-5/Humans/Student.h
+        Lab4-5/CityOperations.cpp
+        Lab4-5/CityOperations.h
 )
-target_include_directories(task4_2 PRIVATE Lab4-5)
+target_include_directories(task4-5_2 PRIVATE Lab4-5)

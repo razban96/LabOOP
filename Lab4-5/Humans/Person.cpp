@@ -1,5 +1,12 @@
 #include "Person.h"
 
+Person::Person(unsigned int age, const std::string& name,
+               bool isAllergicToMosquitoes, const Address& address, bool isAlive)
+    : m_age(age), m_name(name), m_address(address),
+      m_isAllergicToMosquitoes(isAllergicToMosquitoes), m_isAlive(isAlive)
+{
+}
+
 // setters & getters
 void Person::setAge(unsigned int age) { m_age = age; }
 
@@ -10,6 +17,7 @@ void Person::setIsAllergicToMosquitoes(bool isAllergicToMosquitoes)
     m_isAllergicToMosquitoes = isAllergicToMosquitoes;
 }
 void Person::setAddress(const Address& address) { m_address = address; }
+void Person::setApartment(Apartment* apartment) { m_apartment = apartment; }
 
 unsigned int Person::getAge() const { return m_age; }
 
@@ -20,6 +28,8 @@ const Address& Person::getAddress() const { return m_address; }
 bool Person::getIsAllergicToMosquitoes() const { return m_isAllergicToMosquitoes; }
 
 bool Person::getIsAlive() const { return m_isAlive; }
+
+Apartment* Person::getApartment() const { return m_apartment; }
 
 // Other
 void Person::printStandardInfo() const
