@@ -67,3 +67,7 @@ add_executable(task4-5_2
         Lab4-5/CityOperations.h
 )
 target_include_directories(task4-5_2 PRIVATE Lab4-5)
+
+add_executable(task6_1 Lab6/Group/Group.cpp Lab6/Group/Group.h
+        Lab6/Group/main.cpp)
+target_include_directories(task6_1 PRIVATE Lab6)
