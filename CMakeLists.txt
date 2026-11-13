@@ -17,25 +17,25 @@ endif()
 # ==========================================
 # Target: Lab 1
 # ==========================================
-add_executable(Lab1
+add_executable(task1
         Lab1/main.c
         Lab1/temp.c
         Lab1/temp.h
         Lab1/header1.h
         Lab1/header2.h
 )
-# Allows #include "header1.h" directly inside Lab1 files
-target_include_directories(Lab1 PRIVATE Lab1)
+# Allows #include "header1.h" directly inside task1 files
+target_include_directories(task1 PRIVATE Lab1)
 
 # ==========================================
 # Target: Lab 2
 # ==========================================
 # Target for Task 2.1/3.1 Rectangle
-add_executable(task_2_1 Lab2_3/rectangle.cpp Lab2_3/rectangle.h)
-target_include_directories(task_2_1 PRIVATE Lab2_3)
+add_executable(task2_1 Lab2_3/rectangle.cpp Lab2_3/rectangle.h)
+target_include_directories(task2_1 PRIVATE Lab2_3)
 # Target for Task 2.2/3.5 ComplexNumber
-add_executable(task_2_2 Lab2_3/complexNumber.cpp Lab2_3/complexNumber.h)
-target_include_directories(task_2_2 PRIVATE Lab2_3)
+add_executable(task2_2 Lab2_3/complexNumber.cpp Lab2_3/complexNumber.h)
+target_include_directories(task2_2 PRIVATE Lab2_3)
 
 add_executable(task4-5_2
         Lab4-5/Humans/Subcomponents/Address.h
