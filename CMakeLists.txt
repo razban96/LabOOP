@@ -124,3 +124,6 @@ add_executable(task8_3
         Lab7/Task8-3/main.cpp
 )
 target_link_directories(task8_3 PRIVATE Lab7/Task8-3)
+add_executable(task8_5 Lab7/Task8-5/Student.cpp Lab7/Task8-5/Student.h
+        Lab7/Task8-5/ArrayHelper.h
+        Lab7/Task8-5/main.cpp)
