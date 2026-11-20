@@ -114,3 +114,13 @@ add_executable(task8_2
     Lab7/Task8-2/main.cpp
 )
 target_link_directories(task8_2 PRIVATE Lab7/Task8-2)
+
+add_executable(task8_3
+        Lab7/Task8-3/Person.cpp
+        Lab7/Task8-3/Person.h
+        Lab7/Task8-3/Car.cpp
+        Lab7/Task8-3/Car.h
+        Lab7/Task8-3/AverageCalculator.h
+        Lab7/Task8-3/main.cpp
+)
+target_link_directories(task8_3 PRIVATE Lab7/Task8-3)
