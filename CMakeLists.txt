@@ -75,3 +75,11 @@ add_executable(task6_2 Lab6/CarDriver/Driver.cpp Lab6/CarDriver/Driver.h
         Lab6/CarDriver/Car.cpp
         Lab6/CarDriver/Car.h
         Lab6/CarDriver/RentalManagement.cpp)
+
+add_executable(task8_1
+        Lab7/Task8-1/ComplexNumber.cpp
+        Lab7/Task8-1/ComplexNumber.h
+        Lab7/Task8-1/MinElement.h
+        Lab7/Task8-1/main.cpp
+)
+target_link_directories(task8_1 PRIVATE Lab7/Task8-1)
